@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import edu.nextstep.camp.calculator.databinding.ActivityMainBinding
-import edu.nextstep.camp.calculator.domain.Operator
+import edu.nextstep.camp.calculator.domain.Expression.Operator
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -30,10 +30,10 @@ class MainActivity : AppCompatActivity() {
         binding.button8.setOnClickListener { mainLogic.onEvent(MainEvent.AddNumber("${binding.textView.text}", 8)) }
         binding.button9.setOnClickListener { mainLogic.onEvent(MainEvent.AddNumber("${binding.textView.text}", 9)) }
         binding.buttonDelete.setOnClickListener { mainLogic.onEvent(MainEvent.DeleteLast("${binding.textView.text}")) }
-        binding.buttonDivide.setOnClickListener { mainLogic.onEvent(MainEvent.AddOperator("${binding.textView.text}", Operator.Div.operator)) }
-        binding.buttonPlus.setOnClickListener { mainLogic.onEvent(MainEvent.AddOperator("${binding.textView.text}", Operator.Plus.operator)) }
-        binding.buttonMinus.setOnClickListener { mainLogic.onEvent(MainEvent.AddOperator("${binding.textView.text}", Operator.Minus.operator)) }
-        binding.buttonMultiply.setOnClickListener { mainLogic.onEvent(MainEvent.AddOperator("${binding.textView.text}", Operator.Mult.operator)) }
+        binding.buttonDivide.setOnClickListener { mainLogic.onEvent(MainEvent.AddOperator("${binding.textView.text}", Operator.Div)) }
+        binding.buttonPlus.setOnClickListener { mainLogic.onEvent(MainEvent.AddOperator("${binding.textView.text}", Operator.Plus)) }
+        binding.buttonMinus.setOnClickListener { mainLogic.onEvent(MainEvent.AddOperator("${binding.textView.text}", Operator.Minus)) }
+        binding.buttonMultiply.setOnClickListener { mainLogic.onEvent(MainEvent.AddOperator("${binding.textView.text}", Operator.Mult)) }
         binding.buttonEquals.setOnClickListener { mainLogic.onEvent(MainEvent.Evalute("${binding.textView.text}")) }
     }
 
