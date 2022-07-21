@@ -135,4 +135,9 @@ internal class CalculatorTest {
             else -> assertThat(actual).isEqualTo(expected)
         }
     }
+
+    @Test
+    internal fun expressions() {
+        calculator.evalute("3 + 4 - 5")
+    }
 }
