@@ -7,6 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
+import edu.nextstep.camp.calculator.domain.Expression.*
 
 @DisplayName("연산자 기능 테스트")
 class OperatorTest {
@@ -29,7 +30,7 @@ class OperatorTest {
         @ParameterizedTest(name = "입력값: {1}, {2}, 결과: {3}, 연산자: {0}")
         fun `연산`(operator: Operator, left: Double, right: Double, expected: Double) {
             //when
-            val actual = operator.calculate(left, right)
+            val actual = operator(Operand(left), Operand(right)).number
 
             //then
             assertThat(actual).isEqualTo(expected)
